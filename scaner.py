@@ -10,3 +10,14 @@ if len(sys.argv)>1 and len(sys.argv)<3:
 		#print('\"Scaneando\" el archivo '+sys.argv[1])
 		archivo=open(sys.argv[1],'r')
 		cont=archivo.read()
+		print('')
+		scan.scanerArchivo(cont)
+		print('\n')
+	else:
+		print('')
+		print('No existe el archivo '+sys.argv[1])
+		print('\n')
+else:
+	scan.lineaComando()
+
+
