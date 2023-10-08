@@ -24,4 +24,18 @@ def scanerArchivo():
 
 #Funcion que analice el texto
 def lineaComando():
-  print('Comando')
+	os.system('clear')
+	while True:
+		j=0
+		bandera=0
+		print('\n>>> ',end='')
+		cadena=input()
+		for i in range(0,len(cadena)):
+			if j>=len(cadena):
+				break
+			else:
+				bandera=identificar(cadena[j:])
+			if bandera>1:
+				j+=bandera
+			else:
+				j+=1
