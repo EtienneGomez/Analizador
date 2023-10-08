@@ -18,6 +18,12 @@ def identificador(cad):
 		estructura.almacenar(tipoToken.IDENTIFIER,cad[:j-1],None)
 		return j-1
 
+def identificar(cad):
+	j=1#Para identificar los literales
+	aux=1
+
+	return 0
+
 #Funcion para manipular el texto desde un archivo 
 def scanerArchivo(cont):
 	j=0
