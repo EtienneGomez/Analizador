@@ -1,3 +1,4 @@
+from tipoToken import tipoToken
 
   class Token():
     def __init__(self,tipo,lexema):
