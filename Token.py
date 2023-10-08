@@ -11,14 +11,14 @@
       self.literal=lexema
       self.salida=[]
 
-    def toString(self)
+    def toString(self):
         if self.literal==None:
           sal='<'+str(self.tipo)+''+str(self.lexema)+'>'
         else:
           sal='<'+str(self.tipo)+''+str(self.lexema)+''+str(self.literal)+'>'
         return sal
 
-    def almacenar(self,tipo,lexema,literal)
+    def almacenar(self,tipo,lexema,literal):
         entrada=['','','']
         entrada[0]=tipo
         entrada[1]=lexema
