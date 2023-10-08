@@ -1,3 +1,4 @@
+class tipoToken:
 #Tokens de un solo caracter
 LEFT_PAREN='LEFT_PAREN'
 RIGHT_PAREN='RIGHT_PAREN'
