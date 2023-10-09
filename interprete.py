@@ -39,6 +39,14 @@ def identificar(cad):
 			else:
 				j+=1
 		return j
+	elif cad[0]=='[':
+		print(Token(tipoToken.LEFT_BRACKET,cad[0],None).toString())
+		estructura.almacenar(tipoToken.LEFT_BRACKET,cad[0],None)
+		return 0
+	elif cad[0]==']':
+		print(Token(tipoToken.RIGHT_BRACKET,cad[0],None).toString())
+		estructura.almacenar(tipoToken.RIGHT_BRACKET,cad[0],None)
+		return 0
 	elif cad[0]=='(':
 		print(Token(tipoToken.LEFT_PAREN,cad[0],None).toString())
 		estructura.almacenar(tipoToken.LEFT_PAREN,cad[0],None)
