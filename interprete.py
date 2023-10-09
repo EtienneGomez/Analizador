@@ -17,6 +17,8 @@ def identificador(cad):
 		print(Token(tipoToken.IDENTIFIER,cad[:j-1],None).toString())
 		estructura.almacenar(tipoToken.IDENTIFIER,cad[:j-1],None)
 		return j-1
+	else:
+		return 0
 
 def identificar(cad):
 	j=1#Para identificar los literales
@@ -128,61 +130,176 @@ def identificar(cad):
 			return 0
 	#--------------Palabras clave----------------------------------
 	elif cad[:3]=='and':
-		print(Token(tipoToken.AND,cad[:3],None).toString())
-		estructura.almacenar(tipoToken.AND,cad[:3],None)
-		return 3
+		if len(cad)>3:
+			if cad[:4]=='and ':
+				print(Token(tipoToken.AND,cad[:3],None).toString())
+				estructura.almacenar(tipoToken.AND,cad[:3],None)
+				return 3
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.AND,cad[:3],None).toString())
+			estructura.almacenar(tipoToken.AND,cad[:3],None)
+			return 3
 	elif cad[:4]=='else':
-		print(Token(tipoToken.ELSE,cad[:4],None).toString())
-		estructura.almacenar(tipoToken.ELSE,cad[:4],None)
-		return 4
+		if len(cad)>4:
+			if cad[:5]=='else ':
+				print(Token(tipoToken.ELSE,cad[:4],None).toString())
+				estructura.almacenar(tipoToken.ELSE,cad[:4],None)
+				return 4
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.ELSE,cad[:4],None).toString())
+			estructura.almacenar(tipoToken.ELSE,cad[:4],None)
+			return 4
 	elif cad[:5]=='false':
-		print(Token(tipoToken.FALSE,cad[:5],None).toString())
-		estructura.almacenar(tipoToken.FALSE,cad[:5],None)
-		return 5
+		if len(cad)>5:
+			if cad[:6]=='false ':
+				print(Token(tipoToken.FALSE,cad[:5],None).toString())
+				estructura.almacenar(tipoToken.FALSE,cad[:5],None)
+				return 5
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.FALSE,cad[:5],None).toString())
+			estructura.almacenar(tipoToken.FALSE,cad[:5],None)
+			return 5
 	elif cad[:3]=='fun':
-		print(Token(tipoToken.FUN,cad[:3],None).toString())
-		estructura.almacenar(tipoToken.FUN,cad[:3],None)
-		return 3
+		if len(cad)>3:
+			if cad[:4]=='fun ':
+				print(Token(tipoToken.FUN,cad[:3],None).toString())
+				estructura.almacenar(tipoToken.FUN,cad[:3],None)
+				return 3
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.FUN,cad[:3],None).toString())
+			estructura.almacenar(tipoToken.FALSE,cad[:3],None)
+			return 3
 	elif cad[:3]=='for':
-		print(Token(tipoToken.FOR,cad[:3],None).toString())
-		estructura.almacenar(tipoToken.FOR,cad[:3],None)
-		return 3
+		if len(cad)>3:
+			if cad[:4]=='for ':
+				print(Token(tipoToken.FOR,cad[:3],None).toString())
+				estructura.almacenar(tipoToken.FOR,cad[:3],None)
+				return 3
+			elif cad[:4]=='for(':
+				print(Token(tipoToken.FOR,cad[:3],None).toString())
+				estructura.almacenar(tipoToken.FOR,cad[:3],None)
+				return 3
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.FOR,cad[:3],None).toString())
+			estructura.almacenar(tipoToken.FOR,cad[:3],None)
+			return 3
 	elif cad[:2]=='if':
-		print(Token(tipoToken.IF,cad[:2],None).toString())
-		estructura.almacenar(tipoToken.IF,cad[:2],None)
-		return 2
+		if len(cad)>2:
+			if cad[:3]=='if(':
+				print(Token(tipoToken.IF,cad[:2],None).toString())
+				estructura.almacenar(tipoToken.IF,cad[:2],None)
+				return 2
+			elif cad[:3]=='if ':
+				print(Token(tipoToken.IF,cad[:2],None).toString())
+				estructura.almacenar(tipoToken.IF,cad[:2],None)
+				return 3
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.IF,cad[:2],None).toString())
+			estructura.almacenar(tipoToken.IF,cad[:2],None)
+			return 2
 	elif cad[:4]=='null':
-		print(Token(tipoToken.NULL,cad[:4],None).toString())
-		estructura.almacenar(tipoToken.NULL,cad[:4],None)
-		return 4
+		if len(cad)>4:
+			if cad[:5]=='null ':
+				print(Token(tipoToken.NULL,cad[:4],None).toString())
+				estructura.almacenar(tipoToken.NULL,cad[:4],None)
+				return 4
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.NULL,cad[:4],None).toString())
+			estructura.almacenar(tipoToken.NULL,cad[:4],None)
+			return 4
 	elif cad[:2]=='or':
-		print(Token(tipoToken.OR,cad[:2],None).toString())
-		estructura.almacenar(tipoToken.OR,cad[:2],None)
-		return 2
+		if len(cad)>2:
+			if cad[:3]=='or ':
+				print(Token(tipoToken.OR,cad[:2],None).toString())
+				estructura.almacenar(tipoToken.OR,cad[:2],None)
+				return 2
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.OR,cad[:2],None).toString())
+			estructura.almacenar(tipoToken.OR,cad[:2],None)
+			return 2
 	elif cad[:5]=='print':
-		print(Token(tipoToken.PRINT,cad[:5],None).toString())
-		estructura.almacenar(tipoToken.PRINT,cad[:5],None)
-		return 5
+		if len(cad)>5:
+			if cad[:6]=='print ':
+				print(Token(tipoToken.PRINT,cad[:5],None).toString())
+				estructura.almacenar(tipoToken.OR,cad[:5],None)
+				return 5
+			elif cad[:6]=='print(':
+				print(Token(tipoToken.OR,cad[:5],None).toString())
+				estructura.almacenar(tipoToken.OR,cad[:5],None)
+				return 5
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.PRINT,cad[:5],None).toString())
+			estructura.almacenar(tipoToken.PRINT,cad[:5],None)
+			return 5
 	elif cad[:6]=='return':
-		print(Token(tipoToken.RETURN,cad[:6],None).toString())
-		estructura.almacenar(tipoToken.RETURN,cad[:6],None)
-		return 6
+		if len(cad)>6:
+			if cad[:7]=='return ':
+				print(Token(tipoToken.RETURN,cad[:6],None).toString())
+				estructura.almacenar(tipoToken.RETURN,cad[:6],None)
+				return 6
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.RETURN,cad[:6],None).toString())
+			estructura.almacenar(tipoToken.RETURN,cad[:6],None)
+			return 6
 	elif cad[:4]=='true':
-		print(Token(tipoToken.TRUE,cad[:4],None).toString())
-		estructura.almacenar(tipoToken.TRUE,cad[:4],None)
-		return 4
+		if len(cad)>4:
+			if cad[:5]=='true ':
+				print(Token(tipoToken.TRUE,cad[:4],None).toString())
+				estructura.almacenar(tipoToken.TRUE,cad[:4],None)
+				return 4
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.TRUE,cad[:4],None).toString())
+			estructura.almacenar(tipoToken.TRUE,cad[:4],None)
+			return 4 	
 	elif cad[:3]=='var':
-		print(Token(tipoToken.VAR,cad[:3],None).toString())
-		estructura.almacenar(tipoToken.VAR,cad[:3],None)
-		return 3
-	elif cad[:6]=='return':
-		print(Token(tipoToken.RETURN,cad[:6],None).toString())
-		estructura.almacenar(tipoToken.RETURN,cad[:6],None)
-		return 6
+		if len(cad)>3:
+			if cad[:4]=='var ':
+				print(Token(tipoToken.VAR,cad[:3],None).toString())
+				estructura.almacenar(tipoToken.VAR,cad[:3],None)
+				return 3
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.VAR,cad[:3],None).toString())
+			estructura.almacenar(tipoToken.VAR,cad[:3],None)
+			return 3
 	elif cad[:5]=='while':
-		print(Token(tipoToken.WHILE,cad[:5],None).toString())
-		estructura.almacenar(tipoToken.WHILE,cad[:5],None)
-		return 5
+		if len(cad)>5:
+			if cad[:6]=='while ':
+				print(Token(tipoToken.WHILE,cad[:5],None).toString())
+				estructura.almacenar(tipoToken.WHILE,cad[:5],None)
+				return 6
+			elif cad[:6]=='while(':
+				print(Token(tipoToken.WHILE,cad[:5],None).toString())
+				estructura.almacenar(tipoToken.WHILE,cad[:5],None)
+				return 5
+			else:
+				return identificador(cad)
+		else:
+			print(Token(tipoToken.WHILE,cad[:5],None).toString())
+			return 5
 	#--------------------------Literales-----------
 	#Para cadenas
 	elif cad[0]=='\"':
