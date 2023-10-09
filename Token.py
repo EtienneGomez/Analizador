@@ -9,7 +9,8 @@ class Token():
 
     def __init__(self,tipo,lexema,literal):
         self.tipo=tipo
-        self.literal=lexema
+        self.lexema=lexema
+        self.literal=literal
         self.salida=[]
 
     def toString(self):
