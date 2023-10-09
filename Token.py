@@ -15,9 +15,9 @@ class Token():
 
     def toString(self):
         if self.literal==None:
-            sal='<'+str(self.tipo)+''+str(self.lexema)+'>'
+            sal='<'+str(self.tipo)+' '+str(self.lexema)+'>'
         else:
-            sal='<'+str(self.tipo)+''+str(self.lexema)+''+str(self.literal)+'>'
+            sal='<'+str(self.tipo)+' '+str(self.lexema)+' '+str(self.literal)+'>'
         return sal
 
     def almacenar(self,tipo,lexema,literal):
